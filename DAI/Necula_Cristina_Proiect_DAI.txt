@@ -1,0 +1,10 @@
+Student: Necula Cristina-Suzana
+Master: SSA
+Tema Proiect: Gestiune Proiecte
+Functionalitati:
+- intregistrare utilizatori cu diferite roluri si permisiuni in aplicatie
+- autentificare utilizatori
+- creare proiecte, impartire proiect in task-uri de catre utilizatori autorizati
+- alocare utilizatori pe proiecte si task-uri de catre utilizatori autorizati
+- operatii asupra proiectelor/task-urilor: adaugare estimare in timp, schimbare status, adaugare comentarii(descriere), adaugare milestone-uri si grupare task-uri
+- urmarire desfasurare proiect: vizualizare utilizatori implicati in proiect/task, vizualizare milestone-uri, vizualizare status task-uri
