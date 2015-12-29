@@ -5,6 +5,7 @@ class User {
 	String username
 	String password
 	String email
+    Date lastLogin
 	
 	UserRole userRole
 
@@ -22,6 +23,10 @@ class User {
     		email:true,
     		nullable:false,
     		size:6..80)
-    	userRole(nullable:false)
+        lastLogin(
+            nullable:true,
+            display:false)
+        userRole(
+            nullable:false)
     }
 }
