@@ -6,7 +6,6 @@ class Project {
 	User projectManager
 	
 	static hasMany = [members: User]
-	List members
 
 	static constraints = {
 		name(blank:false)

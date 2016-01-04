@@ -29,4 +29,8 @@ class User {
         userRole(
             nullable:false)
     }
+
+    String toString() {
+        return this.username
+    }
 }
