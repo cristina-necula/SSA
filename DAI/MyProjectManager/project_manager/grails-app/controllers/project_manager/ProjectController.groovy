@@ -8,7 +8,7 @@ class ProjectController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    static scaffold = Project
+    def scaffold = Project
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)

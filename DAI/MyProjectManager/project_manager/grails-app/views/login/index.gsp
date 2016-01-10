@@ -1,6 +1,5 @@
 <html>
 	<head>
-		<meta name="layout" content="main"/>
 		<title>Login</title>
 		<style type="text/css">
 			label{
@@ -12,12 +11,14 @@
 	<body>
 		${flash.message}
 		<g:form action="login" style="padding-left:200px">
-			<div style="width:220px">
+			<div>
 				<label>Username:</label>
 				<input type="text" name="username"/>
+				<br/>
 				<label>Password:</label>
 				<input type="password" name="password"/>
-				<input style="width:180px" type="submit" value="Login">
+				<br/>
+				<input style="width:200px" type="submit" value="Login">
 			</div>
 		</g:form>
 	</body>

@@ -29,11 +29,6 @@
                 <fieldset class="form">
                     <f:all bean="project"/>
                 </fieldset>
-                <g:select name="members"
-                    multiple="multiple" 
-                    optionKey="id" 
-                    from="${project_manager.User.list()}" 
-                    value="${User?.name}" />
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>
