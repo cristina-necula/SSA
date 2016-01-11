@@ -74,7 +74,7 @@ def upload_file(dbx, file_name):
 
 def main():
 	"""Main function
-	Uploads current folder content and then downloads it 
+	Uploads a local folder content and then downloads it 
 	"""
 	
 	dbx = configure_dropbox()
