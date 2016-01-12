@@ -7,7 +7,7 @@ from os.path import basename
 from dropbox.files import FileMetadata, FolderMetadata
 
 TOKEN = 'NLGoIVvvLnkAAAAAAAAAMt84FzFhQpSo_OyKurzkFatXgFKvFv2IOeNEj-HUP13v'
-LOCAL_PATH = "Uploads"
+LOCAL_PATH = ""
 UPLOAD_PATH = "/" + LOCAL_PATH
 MB = 1000000
 
@@ -75,6 +75,16 @@ def main():
 	Uploads a local folder content and then downloads it 
 	"""
 	
+	if(len(sys.argv) < 2):
+		print 'Usage: main.py local_directory_name'
+		sys.exit(2)
+
+	global LOCAL_PATH
+	LOCAL_PATH = sys.argv[1]
+
+	global UPLOAD_PATH
+	UPLOAD_PATH = "/" + LOCAL_PATH
+
 	dbx = configure_dropbox()
 
 	print 'Generating random binary files...'
