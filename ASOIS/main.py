@@ -9,14 +9,13 @@ from dropbox.files import FileMetadata, FolderMetadata
 TOKEN = 'NLGoIVvvLnkAAAAAAAAAMt84FzFhQpSo_OyKurzkFatXgFKvFv2IOeNEj-HUP13v'
 LOCAL_PATH = "Uploads"
 UPLOAD_PATH = "/" + LOCAL_PATH
-MB = 1024.0 * 1024.0
+MB = 1000000
 
 def configure_dropbox():
 	""" Configure Dropbox account
 	"""
 	try:
 		dbx = dropbox.Dropbox(TOKEN)
-		dbx.users_get_current_account()
 		print 'Linked Dropbox account: ', dbx.users_get_current_account().email
 	except dropbox.exceptions.BadInputError as err:
 		print 'Instantiating Dropbox instance failed with error: '
@@ -33,13 +32,12 @@ def generate_files():
 	for i in range(1, nr_of_files):
 		file_name = LOCAL_PATH + '/file_' + str(i)
 		with open(file_name, 'wb') as fout:
-			fout.write(os.urandom(i * sys.maxsize / nr_of_files / 10))
+			fout.write(os.urandom(i * sys.maxsize / 150))
 
 def download_file(dbx, file_name):
 	
 	file_path = '%s/%s' % (UPLOAD_PATH, file_name)
 	start_time = time.time()
-	
 	try:
 		md, res = dbx.files_download(file_path)
 		end_time = time.time()
