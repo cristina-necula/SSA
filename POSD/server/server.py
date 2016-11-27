@@ -19,9 +19,11 @@ class MultithreadedServer(object):
 
     def initDatabase(self):
         self.dbAccessControl = databaseAccessControl.DatabaseAccessControl()
+        self.dbAccessControl.dropTables()
         self.dbAccessControl.createTables()
         self.dbAccessControl.addUserAndDefaultPermissions("bob", "bob")
         self.dbAccessControl.addUserAndDefaultPermissions("alice", "alice")
+        self.dbAccessControl.addUserAndDefaultPermissions("root", "root")
 
     def start(self):
         self.listenForConnections()

@@ -1,0 +1,28 @@
+import commandController
+import databaseAccessControl
+
+testCommands = commandController.CommandController()
+dbAccessControl = databaseAccessControl.DatabaseAccessControl()
+dbAccessControl.recreateDefaultDB()
+testCommands.setDBAccessControl(dbAccessControl)
+testCommands.parseAndExecute(str('creareResursa(alice, alice, /alice/cursuri, 0'))
+
+print "1 " + testCommands.parseAndExecute(str('createRole(bob, bob, role1)'))
+print "2 " + testCommands.parseAndExecute(str('createRole(root, root, role1)'))
+print "3 " + testCommands.parseAndExecute(str('changeRights(role1, "r")'))
+print "4 " + testCommands.parseAndExecute(str('assignRole(bob, role1)'))
+print "5 " + testCommands.parseAndExecute(str('creareResursa(alice, alice, /alice/cursuri/cursuri.java, 1,"cursuri")'))
+print "6 " + testCommands.parseAndExecute(str('readResursa(bob, bob, /alice/cursuri)'))
+print "7 " + testCommands.parseAndExecute(str('addRights(bob,bob,/alice/cursuri,role1)'))
+print "8 " + testCommands.parseAndExecute(str('addRights(alice,alice,/alice/cursuri,role1)'))
+print "9 " + testCommands.parseAndExecute(str('readResursa(bob, bob, /alice/cursuri/cursuri.java)'))
+print "10 " + testCommands.parseAndExecute(str('writeResource(alice, alice, /alice/cursuri/cursuri.java, "cursuri2")'))
+print "11 " + testCommands.parseAndExecute(str('writeResource(bob, bob, /alice/cursuri/cursuri.java, "cursuri3")'))
+print "12 " + testCommands.parseAndExecute(str('changeRights(role1, "w")'))
+print "13 " + testCommands.parseAndExecute(str('writeResource(bob, bob, /alice/cursuri/cursuri.java, "cursuri3")'))
+print "14 " + testCommands.parseAndExecute(str('readResursa(bob, bob, /alice/cursuri/cursuri.java)'))
+print "15 " + testCommands.parseAndExecute(str('createRole(root, root, role2)'))
+print "16 " + testCommands.parseAndExecute(str('changeRights(role2, "r")'))
+print "17 " + testCommands.parseAndExecute(str('assignRole(bob, role2)'))
+print "18 " + testCommands.parseAndExecute(str('addRights(alice,alice,/alice/cursuri,role2)'))
+print "19 " + testCommands.parseAndExecute(str('readResursa(bob, bob, /alice/cursuri/cursuri.java)'))

@@ -8,9 +8,11 @@ class CommandController(object):
     def __init__(self):
         self.functionsList = {'creareResursa' : self.creareResursa,
                               'readResursa' : self.readResursa,
-                              'writeResursa' : self.writeResursa,
+                              'writeResource' : self.writeResursa,
                               'changeRights' : self.changeRights,
-                              'createRole' : self.createRole}
+                              'createRole' : self.createRole,
+                              'assignRole' : self.assignRole,
+                              'addRights' : self.addRights}
 
     def setDBAccessControl(self, dbAccessControl):
         self.dbAccessControl = dbAccessControl
@@ -24,11 +26,17 @@ class CommandController(object):
     def writeResursa(self, username, password, resourceName, content):
         return self.dbAccessControl.writeResource(username, password, resourceName, content)
 
-    def changeRights(self, username, password, resourceName, rights):
-        return self.dbAccessControl.changePermissions(username, password, resourceName, rights)
+    def changeRights(self, roleName, permissions):
+        return self.dbAccessControl.changePermissionsForRole(roleName, permissions)
 
     def createRole(self, username, password, roleName):
         return self.dbAccessControl.createRole(username, password, roleName)
+
+    def assignRole(self, username, roleName):
+        return self.dbAccessControl.assignRoleToUser(username, roleName)
+
+    def addRights(self, username, password, resourceName, roleName):
+        return self.dbAccessControl.addACL(username, password, resourceName, roleName)
 
     def parseAndExecute(self, clientInput):
         try:
@@ -45,4 +53,3 @@ class CommandController(object):
             return self.functionsList[command](*parametersList)
         except (KeyError, TypeError):
             return 'Error in funtion signature. Please check again'
-
