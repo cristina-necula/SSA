@@ -16,6 +16,7 @@ ERROR_USER_NOT_FOUND = 'The specified username and password are incorrect'
 ERROR_CREATE_PARENT = 'ParentDirectorNotExisting'
 ERROR_WRITE_FOLDER = 'Cannot write in a folder'
 OK = 'ok'
+ROOT = 'root'
 
 class DatabaseAccessControl():
     def __init__(self):
@@ -29,6 +30,12 @@ class DatabaseAccessControl():
                             'name TEXT, content TEXT, type INTEGER)')
         self.cursor.execute('CREATE TABLE IF NOT EXISTS ACCESS_POLICY(id INTEGER PRIMARY KEY AUTOINCREMENT, '
                             'userID INTEGER, resourceID INTEGER, permissions TEXT)')
+        self.cursor.execute('CREATE TABLE IF NOT EXISTS ROLE(id INTEGER PRIMARY KEY AUTOINCREMENT, '
+                            'name TEXT, permissions TEXT)')
+        self.cursor.execute('CREATE TABLE IF NOT EXISTS ACL(id INTEGER PRIMARY KEY AUTOINCREMENT, '
+                            'resourceID INTEGER, roleID INTEGER)')
+        self.cursor.execute('CREATE TABLE IF NOT EXISTS USER_ROLE(id INTEGER PRIMARY KEY AUTOINCREMENT, '
+                            'userID INTEGER, roleID INTEGER)')
         self.dbConnection.commit()
 
     def addUserAndDefaultPermissions(self, username, password):
@@ -124,6 +131,55 @@ class DatabaseAccessControl():
                         return self.updateResourceContent(resource[0], value)
                     else:
                         return ERROR_WRITE_FOLDER
+
+    def createRole(self, username, password, roleName):
+        if username != ROOT and password != ROOT:
+            return ERROR_NOT_AUTHORIZED
+        self.cursor.execute('SELECT * FROM ROLE WHERE name=?', (roleName, ))
+        role = self.cursor.fetchone()
+        if role is None:
+            self.cursor.execute('INSERT INTO ROLE VALUES(NULL,?,?)', (roleName, ""))
+            self.dbConnection.commit()
+            return OK
+        return ERROR_EXISTS
+
+    def changePermissionsForRole(self, roleName, permissions):
+        self.cursor.execute('SELECT * FROM ROLE WHERE name=?', (roleName, ))
+        role = self.cursor.fetchone()
+        if role is None:
+            return ERROR_NOT_EXISTING
+        self.cursor.execute('UPDATE ROLE set permissions=? WHERE id=? AND name=?',
+                            (permissions, role[0], role[1]))
+        self.dbConnection.commit()
+
+    def addACL(self, username, password, fileName, roleName):
+        # check if user exists
+        user = self.getUser(username, password)
+        if user is None:
+            return ERROR_USER_NOT_FOUND
+        else:
+            # check if resource exists
+            resource = self.getResourceByName(fileName)
+            # check if user is owner
+            filePermissions = self.getFilePermissionsForUser(user, resource)
+            if filePermissions is None or filePermissions[3].find(CREATE_PERMISSION) == -1:
+                return ERROR_NOT_AUTHORIZED
+            else:
+                # check if role exists
+                self.cursor.execute('SELECT * FROM ROLE WHERE name=?', (roleName,))
+                role = self.cursor.fetchone()
+                if role is None:
+                    return ERROR_NOT_EXISTING
+                else:
+                    # check if file already has this role asociated
+                    self.cursor.execute('SELECT * FROM ACL WHERE resourceId=? AND roleId=?', (resource[0], role[0]))
+                    acl = self.cursor.fetchone()
+                    if acl is None:
+                        self.cursor.execute('INSERT INTO ACL VALUES(NULL,?,?)', (resource[0], role[0]))
+                        self.dbConnection.commit()
+                        return OK
+                    else:
+                        return ERROR_EXISTS
 
     def changePermissions(self, username, password, resourceName, permissions):
         # check if user exists
@@ -227,6 +283,9 @@ class DatabaseAccessControl():
         self.cursor.execute('DROP TABLE IF EXISTS USER')
         self.cursor.execute('DROP TABLE IF EXISTS RESOURCE')
         self.cursor.execute('DROP TABLE IF EXISTS ACCESS_POLICY')
+        self.cursor.execute('DROP TABLE IF EXISTS ROLE')
+        self.cursor.execute('DROP TABLE IF EXISTS ACL')
+        self.cursor.execute('DROP TABLE IF EXISTS USER_ROLES')
         self.dbConnection.commit()
 
     def printUserTable(self):
@@ -246,3 +305,10 @@ class DatabaseAccessControl():
         self.createTables()
         self.addUserAndDefaultPermissions("alice", "alice")
         self.addUserAndDefaultPermissions("bob", "bob")
+        self.addUserAndDefaultPermissions("root", "root")
+
+dbAccessControl = DatabaseAccessControl()
+# dbAccessControl.recreateDefaultDB()
+# print dbAccessControl.changePermissionsForRole("role1", "rw")
+dbAccessControl.createResource("alice", "alice", "/alice/cursuri", 0)
+print dbAccessControl.addACL("alice", "alice", "/alice/cursuri", "role1")

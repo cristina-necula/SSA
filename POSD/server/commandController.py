@@ -9,7 +9,8 @@ class CommandController(object):
         self.functionsList = {'creareResursa' : self.creareResursa,
                               'readResursa' : self.readResursa,
                               'writeResursa' : self.writeResursa,
-                              'changeRights' : self.changeRights}
+                              'changeRights' : self.changeRights,
+                              'createRole' : self.createRole}
 
     def setDBAccessControl(self, dbAccessControl):
         self.dbAccessControl = dbAccessControl
@@ -26,6 +27,9 @@ class CommandController(object):
     def changeRights(self, username, password, resourceName, rights):
         return self.dbAccessControl.changePermissions(username, password, resourceName, rights)
 
+    def createRole(self, username, password, roleName):
+        return self.dbAccessControl.createRole(username, password, roleName)
+
     def parseAndExecute(self, clientInput):
         try:
             command, parameters = clientInput.split("(")
@@ -41,3 +45,4 @@ class CommandController(object):
             return self.functionsList[command](*parametersList)
         except (KeyError, TypeError):
             return 'Error in funtion signature. Please check again'
+
