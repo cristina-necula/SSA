@@ -12,6 +12,8 @@ ERROR_EXISTS = 'AlreadyExisting'
 ERROR_NOT_AUTHORIZED = 'NotAuthorized'
 ERROR_NOT_EXISTING = 'NotExisting'
 ERROR_USER_NOT_FOUND = 'The specified username and password are incorrect'
+ERROR_INVALID = "Invalid"
+ERROR_FORBIDDEN = "Forbidden"
 
 ERROR_CREATE_PARENT = 'ParentDirectorNotExisting'
 ERROR_WRITE_FOLDER = 'Cannot write in a folder'
@@ -38,6 +40,14 @@ class DatabaseAccessControl():
                             'resourceID INTEGER, roleID INTEGER)')
         self.cursor.execute('CREATE TABLE IF NOT EXISTS USER_ROLE(id INTEGER PRIMARY KEY AUTOINCREMENT, '
                             'userID INTEGER, roleID INTEGER)')
+        self.cursor.execute('CREATE TABLE IF NOT EXISTS PERMISSION(id INTEGER PRIMARY KEY AUTOINCREMENT,'
+                            'name TEXT, rights TEXT)')
+        self.cursor.execute('CREATE TABLE IF NOT EXISTS ROLE_PERMISSION(id INTEGER PRIMARY KEY AUTOINCREMENT,'
+                            'roleID INTEGER, permissionID INTEGER)')
+        self.cursor.execute('CREATE TABLE IF NOT EXISTS CONSTRAINTS(id INTEGER PRIMARY KEY AUTOINCREMENT,'
+                            'role1ID INTEGER, role2ID INTEGER)')
+        self.cursor.execute('CREATE TABLE IF NOT EXISTS RESOURCE_PERMISSION(id INTEGER PRIMARY KEY AUTOINCREMENT,'
+                            'resourceID INTEGER, permissionID INTEGER)')
         self.dbConnection.commit()
 
     def dropTables(self):
@@ -47,6 +57,10 @@ class DatabaseAccessControl():
         self.cursor.execute('DROP TABLE IF EXISTS ROLE')
         self.cursor.execute('DROP TABLE IF EXISTS ACL')
         self.cursor.execute('DROP TABLE IF EXISTS USER_ROLE')
+        self.cursor.execute('DROP TABLE IF EXISTS PERMISSION')
+        self.cursor.execute('DROP TABLE IF EXISTS ROLE_PERMISSION')
+        self.cursor.execute('DROP TABLE IF EXISTS CONSTRAINTS')
+        self.cursor.execute('DROP TABLE IF EXISTS RESOURCE_PERMISSION')
         self.dbConnection.commit()
 
     def recreateDefaultDB(self):
@@ -121,7 +135,7 @@ class DatabaseAccessControl():
                 return ERROR_NOT_EXISTING
             else:
                 # check if user has permission
-                permissions = self.getResourcePermissionsForUserFromACL(user, resource)
+                permissions = self.getUserRightsForResourceSPD(user, resource[1])
                 if permissions is None or permissions == "" or permissions.find(READ_PERMISSION) == -1:
                     return ERROR_NOT_AUTHORIZED
                 else:
@@ -145,7 +159,7 @@ class DatabaseAccessControl():
                 return ERROR_NOT_EXISTING
             else:
                 # check if user has permission
-                permissions = self.getResourcePermissionsForUserFromACL(user, resource)
+                permissions = self.getUserRightsForResourceSPD(user, resource[1])
                 if permissions is None or permissions == "" or permissions.find(WRITE_PERMISSION) == -1:
                     return ERROR_NOT_AUTHORIZED
                 else:
@@ -153,6 +167,90 @@ class DatabaseAccessControl():
                         return self.updateResourceContent(resource[0], value)
                     else:
                         return ERROR_WRITE_FOLDER
+
+    # </editor-fold>
+
+    # <editor-fold desc="Permissions and Static Separation of Duties">
+
+    def createConstraint(self, username, password, role1, role2):
+        # check if user is root
+        if username == ROOT and password == ROOT:
+            # get role1 and role2 entries from database
+            role1DB = self.cursor.execute('SELECT * from ROLE WHERE name=?', (role1, )).fetchone()
+            role2DB = self.cursor.execute('SELECT * from ROLE WHERE name=?', (role2, )).fetchone()
+            if role1DB is None or role2DB is None:
+                return ERROR_NOT_EXISTING
+            # check if constraint already exists
+            self.cursor.execute('SELECT * from CONSTRAINTS where role1ID=? and role2ID=?', (role1DB[0], role2DB[0]))
+            constraint = self.cursor.fetchone()
+            if constraint is None:
+                self.cursor.execute('INSERT INTO CONSTRAINTS VALUES(NULL,?,?)', (role1DB[0], role2DB[0]))
+                self.dbConnection.commit()
+                return OK
+            else:
+                return ERROR_EXISTS
+        else:
+            return ERROR_NOT_AUTHORIZED
+
+    def revokeRole(self, username, password, user, role):
+        # check if user is root
+        if username == ROOT and password == ROOT:
+            # get role and user entries from db
+            roleDB = self.cursor.execute('SELECT * from ROLE WHERE name=?', (role, )).fetchone()
+            userDB = self.cursor.execute('SELECT * from USER WHERE username=?', (user, )).fetchone()
+            if roleDB is None or userDB is None:
+                return ERROR_NOT_EXISTING
+            else:
+                userRole = self.cursor.execute('SELECT * from USER_ROLE WHERE userID=? and roleID=?',
+                                               (userDB[0], roleDB[0])).fetchone()
+                if userRole is None:
+                    return ERROR_INVALID
+                self.cursor.execute('DELETE FROM USER_ROLE WHERE userID=? and roleID=?', (userDB[0], roleDB[0]))
+                self.dbConnection.commit()
+                return OK
+        else:
+            return ERROR_NOT_AUTHORIZED
+
+    def assignPermission(self, username, password, resource, permission):
+        # check if user exists
+        user = self.getUser(username, password)
+        if user is None:
+            return ERROR_USER_NOT_FOUND
+        else:
+            # check if user is owner
+            resourceDB = self.getResourceByName(resource)
+            filePermissions = self.getResourcePermissionsForUserFromAP(user, resourceDB)
+            if filePermissions is None or filePermissions[3].find(CREATE_PERMISSION) == -1:
+                return ERROR_NOT_AUTHORIZED
+            else:
+                permissionDB = self.getPermissionByName(permission)
+                self.cursor.execute('INSERT INTO RESOURCE_PERMISSION VALUES(NULL,?,?)', (resourceDB[0], permissionDB[0]))
+                self.dbConnection.commit()
+                return OK
+
+    def addPermissionToRole(self, username, password, role, permission):
+        if username != ROOT or password != ROOT:
+            return ERROR_NOT_AUTHORIZED
+        roleDB = self.cursor.execute('SELECT * from ROLE WHERE name=?', (role,)).fetchone()
+        permissionDB = self.getPermissionByName(permission)
+        if roleDB is None or permissionDB is None:
+            return ERROR_NOT_EXISTING
+        self.cursor.execute('INSERT INTO ROLE_PERMISSION VALUES (NULL,?,?)', (roleDB[0], permissionDB[0]))
+        self.dbConnection.commit()
+        return OK
+
+    def createPermission(self, username, password, name, rights):
+        if username != ROOT and password != ROOT:
+            return ERROR_NOT_AUTHORIZED
+
+        permissions = self.cursor.execute('SELECT * FROM PERMISSION WHERE name=? AND rights=?', (name, rights))\
+            .fetchone()
+        if permissions is not None:
+            return ERROR_EXISTS
+
+        self.cursor.execute('INSERT INTO PERMISSION VALUES(NULL,?,?)', (name, rights))
+        self.dbConnection.commit()
+        return OK
 
     # </editor-fold>
 
@@ -179,22 +277,38 @@ class DatabaseAccessControl():
         self.dbConnection.commit()
         return OK
 
-    def assignRoleToUser(self, username, roleName):
+    def assignRoleToUser(self, username, password, user, roleName):
+        if username != ROOT and password != ROOT:
+            return ERROR_NOT_AUTHORIZED
+
         # get user
-        self.cursor.execute('SELECT * FROM USER WHERE username=?', (username, ))
-        user = self.cursor.fetchone()
-        if user is None:
+        self.cursor.execute('SELECT * FROM USER WHERE username=?', (user, ))
+        userDB = self.cursor.fetchone()
+        if userDB is None:
             return ERROR_NOT_EXISTING
+
         # get role
         self.cursor.execute('SELECT * FROM ROLE WHERE name=?', (roleName, ))
-        role = self.cursor.fetchone()
-        if role is None:
+        roleDB = self.cursor.fetchone()
+        if roleDB is None:
             return ERROR_NOT_EXISTING
+
+        constraints = self.cursor.execute('SELECT * FROM CONSTRAINTS WHERE role1ID=? OR role2ID=?',
+                                          (roleDB[0],roleDB[0])).fetchall()
+        userRoles = self.cursor.execute('SELECT * FROM USER_ROLE WHERE userID=?', (userDB[0],)).fetchall()
+
+        for constraint in constraints:
+             for role in userRoles:
+                 if (role[0] == constraint[1] and constraint[2] == roleDB[0]) \
+                         or (role[0] == constraint[2] and constraint[1] == roleDB[0]):
+                    return ERROR_FORBIDDEN
+
         # check if user already has this role
-        self.cursor.execute('SELECT * FROM USER_ROLE WHERE userId=? AND roleID=?', (user[0], role[0]))
+        self.cursor.execute('SELECT * FROM USER_ROLE WHERE userId=? AND roleID=?', (userDB[0], roleDB[0]))
         userRole = self.cursor.fetchone()
         if userRole is None:
-            self.cursor.execute('INSERT INTO USER_ROLE VALUES(NULL,?,?)', (user[0], role[0]))
+
+            self.cursor.execute('INSERT INTO USER_ROLE VALUES(NULL,?,?)', (userDB[0], roleDB[0]))
             self.dbConnection.commit()
             return OK
         else:
@@ -364,8 +478,7 @@ class DatabaseAccessControl():
         return ", ".join(str(res) for res in content)
 
     def getResourceByName(self, resourceName):
-        self.cursor.execute('SELECT * FROM RESOURCE WHERE name=?', (resourceName,))
-        return self.cursor.fetchone()
+        return self.cursor.execute('SELECT * FROM RESOURCE WHERE name=?', (resourceName,)).fetchone()
 
     def insertResourceToDB(self, userID, resourceName, resourceType, resourceContent, permissions):
         self.cursor.execute('INSERT INTO RESOURCE VALUES(NULL,?,?,?)',
@@ -376,3 +489,34 @@ class DatabaseAccessControl():
         self.cursor.execute('INSERT INTO ACCESS_POLICY VALUES(NULL,?,?,?)', (userID, resourceID, permissions))
         self.dbConnection.commit()
         return resourceID
+
+    def getPermissionByName(self, permissionName):
+        return self.cursor.execute('SELECT * from PERMISSION WHERE name=?', (permissionName, )).fetchone()
+
+    def getUserRightsForResourceSPD(self, user, resourceName):
+        userRolesID = self.cursor.execute('SELECT roleID FROM USER_ROLE WHERE userID=?', (user[0],)).fetchall()
+        userPermissionsID =[]
+        for userRoleID in userRolesID:
+            rolePermissionID = self.cursor.execute('SELECT permissionID from ROLE_PERMISSION where roleID=?',
+                                                   (userRoleID[0],)).fetchone()
+            if rolePermissionID is not None:
+                userPermissionsID.append(rolePermissionID)
+
+        if len(userPermissionsID) == 0:
+            parentResource = self.getParentResource(resourceName)
+            if parentResource is not None:
+                return self.getUserRightsForResourceSPD(user, parentResource[1])
+            else:
+                return ""
+
+        userRights = ""
+        for userPermission in userPermissionsID:
+            right = self.cursor.execute('SELECT rights FROM PERMISSION WHERE id=?', (userPermission[0], )).fetchone()
+            userRights += right[0]
+
+        if userRights == "":
+            parentResource = self.getParentResource(resourceName)
+            if parentResource is not None:
+                return self.getUserRightsForResourceSPD(user, parentResource[1])
+
+        return userRights

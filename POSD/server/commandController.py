@@ -12,7 +12,12 @@ class CommandController(object):
                               'changeRights' : self.changeRights,
                               'createRole' : self.createRole,
                               'assignRole' : self.assignRole,
-                              'addRights' : self.addRights}
+                              'addRights' : self.addRights,
+                              'createPermission' : self.createPermission,
+                              'addPermissionToRole' : self.addPermissionToRole,
+                              'assignPermission' : self.assignPermission,
+                              'createConstraint' : self.createConstraint,
+                              'revokeRole' : self.revokeRole}
 
     def setDBAccessControl(self, dbAccessControl):
         self.dbAccessControl = dbAccessControl
@@ -32,11 +37,26 @@ class CommandController(object):
     def createRole(self, username, password, roleName):
         return self.dbAccessControl.createRole(username, password, roleName)
 
-    def assignRole(self, username, roleName):
-        return self.dbAccessControl.assignRoleToUser(username, roleName)
+    def assignRole(self, username, password, user, role):
+        return self.dbAccessControl.assignRoleToUser(username, password, user, role)
 
     def addRights(self, username, password, resourceName, roleName):
         return self.dbAccessControl.addACL(username, password, resourceName, roleName)
+
+    def createConstraint(self, username, password, role1, role2):
+        return self.dbAccessControl.createConstraint(username, password, role1, role2)
+
+    def revokeRole(self, username, password, user, role):
+        return self.dbAccessControl.revokeRole(username, password, user, role)
+
+    def assignPermission(self, username, password, resource, permission):
+        return self.dbAccessControl.assignPermission(username, password, resource, permission)
+
+    def addPermissionToRole(self, username, password, role, permission):
+        return self.dbAccessControl.addPermissionToRole(username, password, role, permission)
+
+    def createPermission(self, username, password, name, rights):
+        return self.dbAccessControl.createPermission(username, password, name, rights)
 
     def parseAndExecute(self, clientInput):
         try:

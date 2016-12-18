@@ -1,4 +1,4 @@
-Tema 1 POSD
+Tema 3 POSD
 
 Student: Necula Cristina-Suzana, SSA
 
@@ -6,5 +6,6 @@ Implementare: python 2.7.12, modulul socket pentru conexiunea intre client-serve
 
 Rulare: 
 - se ruleaza server.py din linia de comanda
-- se ruleaza oricate instante de client.py din linia de comanda
-- se introduc de la tastatura comenzile in terminalele in care ruleaza modulul client
+- clientul se poate rula 
+	- din linie de comanda(comenzile se introduc de la tastatura) - modulul starClientFromCMD.py
+	- prin rularea clientTestCasesScript_Tema3.py - se deschide o singura instanta client si se trimit comenzile succesiv catre instanta de server deschisa aterior

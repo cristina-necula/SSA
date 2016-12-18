@@ -20,86 +20,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="server.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/server.py">
+      <file leaf-file-name="clientTestCasesScript_Tema3.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/clientTestCasesScript_Tema3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="commandController.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/commandController.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="884">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state relative-caret-position="178">
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="databaseAccessControl.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="databaseAccessControl.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/databaseAccessControl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="377" column="25" selection-start-line="377" selection-start-column="25" selection-end-line="377" selection-end-column="25" />
+            <state relative-caret-position="3757">
+              <caret line="513" column="101" selection-start-line="513" selection-start-column="101" selection-end-line="513" selection-end-column="101" />
               <folding>
-                <element signature="e#3354#3408#0" expanded="false" />
-                <element signature="e#7015#7056#0" expanded="false" />
-                <element signature="e#11714#11773#0" expanded="false" />
-                <element signature="e#15690#15900#0" expanded="false" />
-                <element signature="e#15968#16107#0" expanded="false" />
-                <element signature="e#16160#16293#0" expanded="false" />
-                <element signature="e#16343#16655#0" expanded="false" />
-                <element signature="e#16712#16825#0" expanded="false" />
-                <element signature="e#16935#17394#0" expanded="false" />
+                <element signature="e#705#763#0" expanded="false" />
+                <element signature="e#4534#6001#0" expanded="false" />
+                <element signature="e#8169#9121#0" expanded="false" />
+                <element signature="e#9189#10115#0" expanded="false" />
+                <element signature="e#10199#10945#0" expanded="false" />
+                <element signature="e#11028#11509#0" expanded="false" />
+                <element signature="e#11585#12013#0" expanded="false" />
+                <element signature="e#12148#12543#0" expanded="false" />
+                <element signature="e#12616#12982#0" expanded="false" />
+                <element signature="e#13060#14546#0" expanded="false" />
+                <element signature="e#14618#15939#0" expanded="false" />
+                <element signature="e#19639#19867#0" expanded="false" />
+                <element signature="e#19967#20456#0" expanded="false" />
+                <element signature="e#20546#21310#0" expanded="false" />
+                <element signature="e#21686#21825#0" expanded="false" />
+                <element signature="e#21878#22011#0" expanded="false" />
+                <element signature="e#22061#22373#0" expanded="false" />
+                <element signature="e#22430#22523#0" expanded="false" />
+                <element signature="e#22633#23092#0" expanded="false" />
+                <element signature="e#23153#23251#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testCommandController.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/testCommandController.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="client.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/client.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clientTestCasesScript.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/clientTestCasesScript.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="72" column="44" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="startClientFromCMD.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/startClientFromCMD.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -119,14 +76,15 @@
         <option value="$PROJECT_DIR$/server/constants.py" />
         <option value="$PROJECT_DIR$/constants.py" />
         <option value="$PROJECT_DIR$/server/testCommands" />
-        <option value="$PROJECT_DIR$/server/commandController.py" />
         <option value="$PROJECT_DIR$/client/testClient.py" />
         <option value="$PROJECT_DIR$/client/startClientFromCMD.py" />
         <option value="$PROJECT_DIR$/client/client.py" />
         <option value="$PROJECT_DIR$/server/server.py" />
-        <option value="$PROJECT_DIR$/server/databaseAccessControl.py" />
         <option value="$PROJECT_DIR$/server/testCommandController.py" />
         <option value="$PROJECT_DIR$/client/clientTestCasesScript.py" />
+        <option value="$PROJECT_DIR$/server/commandController.py" />
+        <option value="$PROJECT_DIR$/client/clientTestCasesScript_Tema3.py" />
+        <option value="$PROJECT_DIR$/server/databaseAccessControl.py" />
       </list>
     </option>
   </component>
@@ -161,6 +119,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -210,7 +169,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -221,7 +179,7 @@
       <recent name="C:\Users\C13389\PycharmProjects\POSD_TEMA1" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.startClientFromCMD">
+  <component name="RunManager" selected="Python.clientTestCasesScript_Tema3">
     <configuration default="false" name="server" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -235,23 +193,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="POSD_TEMA1" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server/server.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="databaseAccessControl" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/server" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="POSD_TEMA1" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server/databaseAccessControl.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -285,7 +226,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="POSD_TEMA1" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/client/clientTestCasesScript.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Cristina\Desktop\FACULTATE\SSA\POSD\client\clientTestCasesScript_Tema2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -303,6 +244,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="POSD_TEMA1" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/client/startClientFromCMD.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="clientTestCasesScript_Tema3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/client" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="POSD_TEMA1" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/client/clientTestCasesScript_Tema3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -443,18 +401,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.server" />
-      <item index="1" class="java.lang.String" itemvalue="Python.databaseAccessControl" />
-      <item index="2" class="java.lang.String" itemvalue="Python.testCommandController" />
-      <item index="3" class="java.lang.String" itemvalue="Python.clientTestCasesScript" />
-      <item index="4" class="java.lang.String" itemvalue="Python.startClientFromCMD" />
+      <item index="1" class="java.lang.String" itemvalue="Python.testCommandController" />
+      <item index="2" class="java.lang.String" itemvalue="Python.clientTestCasesScript" />
+      <item index="3" class="java.lang.String" itemvalue="Python.startClientFromCMD" />
+      <item index="4" class="java.lang.String" itemvalue="Python.clientTestCasesScript_Tema3" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.clientTestCasesScript" />
+        <item index="0" class="java.lang.String" itemvalue="Python.clientTestCasesScript_Tema3" />
         <item index="1" class="java.lang.String" itemvalue="Python.server" />
-        <item index="2" class="java.lang.String" itemvalue="Python.startClientFromCMD" />
+        <item index="2" class="java.lang.String" itemvalue="Python.clientTestCasesScript" />
         <item index="3" class="java.lang.String" itemvalue="Python.testCommandController" />
-        <item index="4" class="java.lang.String" itemvalue="Python.databaseAccessControl" />
+        <item index="4" class="java.lang.String" itemvalue="Python.startClientFromCMD" />
       </list>
     </recent_temporary>
   </component>
@@ -481,19 +439,19 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18072917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3319239" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23361522" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30549684" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39852008" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48414376" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3319239" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -510,13 +468,175 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="23" />
+      <option name="time" value="39" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/server/server.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="40" column="53" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/commandController.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/databaseAccessControl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#705#763#0" expanded="false" />
+            <element signature="e#4534#6001#0" expanded="false" />
+            <element signature="e#8169#9121#0" expanded="false" />
+            <element signature="e#9189#10115#0" expanded="false" />
+            <element signature="e#10199#10945#0" expanded="false" />
+            <element signature="e#11028#11509#0" expanded="false" />
+            <element signature="e#11585#12013#0" expanded="false" />
+            <element signature="e#12148#12543#0" expanded="false" />
+            <element signature="e#12616#12982#0" expanded="false" />
+            <element signature="e#13060#14546#0" expanded="false" />
+            <element signature="e#14618#15939#0" expanded="false" />
+            <element signature="e#19639#19867#0" expanded="false" />
+            <element signature="e#19967#20456#0" expanded="false" />
+            <element signature="e#20546#21310#0" expanded="false" />
+            <element signature="e#21686#21825#0" expanded="false" />
+            <element signature="e#21878#22011#0" expanded="false" />
+            <element signature="e#22061#22373#0" expanded="false" />
+            <element signature="e#22430#22523#0" expanded="false" />
+            <element signature="e#22633#23092#0" expanded="false" />
+            <element signature="e#23153#23251#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/testCommandController.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/clientTestCasesScript_Tema2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="77" column="27" selection-start-line="77" selection-start-column="27" selection-end-line="77" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/startClientFromCMD.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/commandController.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/databaseAccessControl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+          <folding>
+            <element signature="e#705#763#0" expanded="false" />
+            <element signature="e#4534#6001#0" expanded="false" />
+            <element signature="e#8169#9121#0" expanded="false" />
+            <element signature="e#9189#10115#0" expanded="false" />
+            <element signature="e#10199#10945#0" expanded="false" />
+            <element signature="e#11028#11509#0" expanded="false" />
+            <element signature="e#11585#12013#0" expanded="false" />
+            <element signature="e#12148#12543#0" expanded="false" />
+            <element signature="e#12616#12982#0" expanded="false" />
+            <element signature="e#13060#14546#0" expanded="false" />
+            <element signature="e#14618#15939#0" expanded="false" />
+            <element signature="e#19639#19867#0" expanded="false" />
+            <element signature="e#19967#20456#0" expanded="false" />
+            <element signature="e#20546#21310#0" expanded="false" />
+            <element signature="e#21686#21825#0" expanded="false" />
+            <element signature="e#21878#22011#0" expanded="false" />
+            <element signature="e#22061#22373#0" expanded="false" />
+            <element signature="e#22430#22523#0" expanded="false" />
+            <element signature="e#22633#23092#0" expanded="false" />
+            <element signature="e#23153#23251#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/testCommandController.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/clientTestCasesScript_Tema2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/startClientFromCMD.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
@@ -525,28 +645,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/testCommands">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="67" selection-start-line="42" selection-start-column="67" selection-end-line="42" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/server/testCommands" />
     <entry file="file://$PROJECT_DIR$/server/databaseAccessControl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4199">
           <caret line="247" column="55" selection-start-line="247" selection-start-column="55" selection-end-line="247" selection-end-column="55" />
           <folding>
-            <element signature="e#3354#3408#0" expanded="false" />
-            <element signature="e#7015#7056#0" expanded="false" />
-            <element signature="e#11714#11773#0" expanded="false" />
-            <element signature="e#15690#15900#0" expanded="false" />
-            <element signature="e#15968#16107#0" expanded="false" />
-            <element signature="e#16160#16293#0" expanded="false" />
-            <element signature="e#16343#16655#0" expanded="false" />
-            <element signature="e#16712#16825#0" expanded="false" />
-            <element signature="e#16935#17394#0" expanded="false" />
+            <element signature="e#705#763#0" expanded="false" />
+            <element signature="e#4534#6001#0" expanded="false" />
+            <element signature="e#8169#9121#0" expanded="false" />
+            <element signature="e#9189#10115#0" expanded="false" />
+            <element signature="e#10199#10945#0" expanded="false" />
+            <element signature="e#11028#11509#0" expanded="false" />
+            <element signature="e#11585#12013#0" expanded="false" />
+            <element signature="e#12148#12543#0" expanded="false" />
+            <element signature="e#12616#12982#0" expanded="false" />
+            <element signature="e#13060#14546#0" expanded="false" />
+            <element signature="e#14618#15939#0" expanded="false" />
+            <element signature="e#19639#19867#0" expanded="false" />
+            <element signature="e#19967#20456#0" expanded="false" />
+            <element signature="e#20546#21310#0" expanded="false" />
+            <element signature="e#21686#21825#0" expanded="false" />
+            <element signature="e#21878#22011#0" expanded="false" />
+            <element signature="e#22061#22373#0" expanded="false" />
+            <element signature="e#22430#22523#0" expanded="false" />
+            <element signature="e#22633#23092#0" expanded="false" />
+            <element signature="e#23153#23251#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -569,28 +693,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/testCommands">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" column="68" selection-start-line="57" selection-start-column="68" selection-end-line="57" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/server/testCommands" />
     <entry file="file://$PROJECT_DIR$/server/databaseAccessControl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3354#3408#0" expanded="false" />
-            <element signature="e#7015#7056#0" expanded="false" />
-            <element signature="e#11714#11773#0" expanded="false" />
-            <element signature="e#15690#15900#0" expanded="false" />
-            <element signature="e#15968#16107#0" expanded="false" />
-            <element signature="e#16160#16293#0" expanded="false" />
-            <element signature="e#16343#16655#0" expanded="false" />
-            <element signature="e#16712#16825#0" expanded="false" />
-            <element signature="e#16935#17394#0" expanded="false" />
+            <element signature="e#705#763#0" expanded="false" />
+            <element signature="e#4534#6001#0" expanded="false" />
+            <element signature="e#8169#9121#0" expanded="false" />
+            <element signature="e#9189#10115#0" expanded="false" />
+            <element signature="e#10199#10945#0" expanded="false" />
+            <element signature="e#11028#11509#0" expanded="false" />
+            <element signature="e#11585#12013#0" expanded="false" />
+            <element signature="e#12148#12543#0" expanded="false" />
+            <element signature="e#12616#12982#0" expanded="false" />
+            <element signature="e#13060#14546#0" expanded="false" />
+            <element signature="e#14618#15939#0" expanded="false" />
+            <element signature="e#19639#19867#0" expanded="false" />
+            <element signature="e#19967#20456#0" expanded="false" />
+            <element signature="e#20546#21310#0" expanded="false" />
+            <element signature="e#21686#21825#0" expanded="false" />
+            <element signature="e#21878#22011#0" expanded="false" />
+            <element signature="e#22061#22373#0" expanded="false" />
+            <element signature="e#22430#22523#0" expanded="false" />
+            <element signature="e#22633#23092#0" expanded="false" />
+            <element signature="e#23153#23251#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -613,28 +741,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/testCommands">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" column="68" selection-start-line="57" selection-start-column="68" selection-end-line="57" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/server/testCommands" />
     <entry file="file://$PROJECT_DIR$/server/databaseAccessControl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#3354#3408#0" expanded="false" />
-            <element signature="e#7015#7056#0" expanded="false" />
-            <element signature="e#11714#11773#0" expanded="false" />
-            <element signature="e#15690#15900#0" expanded="false" />
-            <element signature="e#15968#16107#0" expanded="false" />
-            <element signature="e#16160#16293#0" expanded="false" />
-            <element signature="e#16343#16655#0" expanded="false" />
-            <element signature="e#16712#16825#0" expanded="false" />
-            <element signature="e#16935#17394#0" expanded="false" />
+            <element signature="e#705#763#0" expanded="false" />
+            <element signature="e#4534#6001#0" expanded="false" />
+            <element signature="e#8169#9121#0" expanded="false" />
+            <element signature="e#9189#10115#0" expanded="false" />
+            <element signature="e#10199#10945#0" expanded="false" />
+            <element signature="e#11028#11509#0" expanded="false" />
+            <element signature="e#11585#12013#0" expanded="false" />
+            <element signature="e#12148#12543#0" expanded="false" />
+            <element signature="e#12616#12982#0" expanded="false" />
+            <element signature="e#13060#14546#0" expanded="false" />
+            <element signature="e#14618#15939#0" expanded="false" />
+            <element signature="e#19639#19867#0" expanded="false" />
+            <element signature="e#19967#20456#0" expanded="false" />
+            <element signature="e#20546#21310#0" expanded="false" />
+            <element signature="e#21686#21825#0" expanded="false" />
+            <element signature="e#21878#22011#0" expanded="false" />
+            <element signature="e#22061#22373#0" expanded="false" />
+            <element signature="e#22430#22523#0" expanded="false" />
+            <element signature="e#22633#23092#0" expanded="false" />
+            <element signature="e#23153#23251#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -657,28 +789,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/testCommands">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" column="68" selection-start-line="57" selection-start-column="68" selection-end-line="57" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/server/testCommands" />
     <entry file="file://$PROJECT_DIR$/server/databaseAccessControl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4250">
           <caret line="250" column="19" selection-start-line="250" selection-start-column="19" selection-end-line="250" selection-end-column="19" />
           <folding>
-            <element signature="e#3354#3408#0" expanded="false" />
-            <element signature="e#7015#7056#0" expanded="false" />
-            <element signature="e#11714#11773#0" expanded="false" />
-            <element signature="e#15690#15900#0" expanded="false" />
-            <element signature="e#15968#16107#0" expanded="false" />
-            <element signature="e#16160#16293#0" expanded="false" />
-            <element signature="e#16343#16655#0" expanded="false" />
-            <element signature="e#16712#16825#0" expanded="false" />
-            <element signature="e#16935#17394#0" expanded="false" />
+            <element signature="e#705#763#0" expanded="false" />
+            <element signature="e#4534#6001#0" expanded="false" />
+            <element signature="e#8169#9121#0" expanded="false" />
+            <element signature="e#9189#10115#0" expanded="false" />
+            <element signature="e#10199#10945#0" expanded="false" />
+            <element signature="e#11028#11509#0" expanded="false" />
+            <element signature="e#11585#12013#0" expanded="false" />
+            <element signature="e#12148#12543#0" expanded="false" />
+            <element signature="e#12616#12982#0" expanded="false" />
+            <element signature="e#13060#14546#0" expanded="false" />
+            <element signature="e#14618#15939#0" expanded="false" />
+            <element signature="e#19639#19867#0" expanded="false" />
+            <element signature="e#19967#20456#0" expanded="false" />
+            <element signature="e#20546#21310#0" expanded="false" />
+            <element signature="e#21686#21825#0" expanded="false" />
+            <element signature="e#21878#22011#0" expanded="false" />
+            <element signature="e#22061#22373#0" expanded="false" />
+            <element signature="e#22430#22523#0" expanded="false" />
+            <element signature="e#22633#23092#0" expanded="false" />
+            <element signature="e#23153#23251#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -730,88 +866,99 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/constants.py" />
-    <entry file="file://$PROJECT_DIR$/server/testCommands">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/server/testCommands" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="337">
           <caret line="1579" column="0" selection-start-line="1579" selection-start-column="0" selection-end-line="1579" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/startClientFromCMD.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/commandController.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/databaseAccessControl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="377" column="25" selection-start-line="377" selection-start-column="25" selection-end-line="377" selection-end-column="25" />
-          <folding>
-            <element signature="e#3354#3408#0" expanded="false" />
-            <element signature="e#7015#7056#0" expanded="false" />
-            <element signature="e#11714#11773#0" expanded="false" />
-            <element signature="e#15690#15900#0" expanded="false" />
-            <element signature="e#15968#16107#0" expanded="false" />
-            <element signature="e#16160#16293#0" expanded="false" />
-            <element signature="e#16343#16655#0" expanded="false" />
-            <element signature="e#16712#16825#0" expanded="false" />
-            <element signature="e#16935#17394#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/testCommandController.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/client.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/clientTestCasesScript.py">
+    <entry file="file://$PROJECT_DIR$/client/clientTestCasesScript_Tema2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="72" column="44" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="44" />
+        <state relative-caret-position="221">
+          <caret line="13" column="45" selection-start-line="9" selection-start-column="0" selection-end-line="13" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/startClientFromCMD.py">
+    <entry file="file://$PROJECT_DIR$/server/testCommandController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        <state relative-caret-position="119">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/commandController.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+        <state relative-caret-position="99">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/clientTestCasesScript_Tema3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/databaseAccessControl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3757">
+          <caret line="513" column="101" selection-start-line="513" selection-start-column="101" selection-end-line="513" selection-end-column="101" />
+          <folding>
+            <element signature="e#705#763#0" expanded="false" />
+            <element signature="e#4534#6001#0" expanded="false" />
+            <element signature="e#8169#9121#0" expanded="false" />
+            <element signature="e#9189#10115#0" expanded="false" />
+            <element signature="e#10199#10945#0" expanded="false" />
+            <element signature="e#11028#11509#0" expanded="false" />
+            <element signature="e#11585#12013#0" expanded="false" />
+            <element signature="e#12148#12543#0" expanded="false" />
+            <element signature="e#12616#12982#0" expanded="false" />
+            <element signature="e#13060#14546#0" expanded="false" />
+            <element signature="e#14618#15939#0" expanded="false" />
+            <element signature="e#19639#19867#0" expanded="false" />
+            <element signature="e#19967#20456#0" expanded="false" />
+            <element signature="e#20546#21310#0" expanded="false" />
+            <element signature="e#21686#21825#0" expanded="false" />
+            <element signature="e#21878#22011#0" expanded="false" />
+            <element signature="e#22061#22373#0" expanded="false" />
+            <element signature="e#22430#22523#0" expanded="false" />
+            <element signature="e#22633#23092#0" expanded="false" />
+            <element signature="e#23153#23251#0" expanded="false" />
           </folding>
         </state>
       </provider>
