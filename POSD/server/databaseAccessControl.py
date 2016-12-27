@@ -48,6 +48,8 @@ class DatabaseAccessControl():
                             'role1ID INTEGER, role2ID INTEGER)')
         self.cursor.execute('CREATE TABLE IF NOT EXISTS RESOURCE_PERMISSION(id INTEGER PRIMARY KEY AUTOINCREMENT,'
                             'resourceID INTEGER, permissionID INTEGER)')
+        self.cursor.execute('CREATE TABLE IF NOT EXISTS ROLE_HIERARCHY(id INTEGER PRIMARY KEY AUTOINCREMENT,'
+                            'junior_roleID INTEGER, superior_roleID INTEGER)')
         self.dbConnection.commit()
 
     def dropTables(self):
@@ -61,6 +63,7 @@ class DatabaseAccessControl():
         self.cursor.execute('DROP TABLE IF EXISTS ROLE_PERMISSION')
         self.cursor.execute('DROP TABLE IF EXISTS CONSTRAINTS')
         self.cursor.execute('DROP TABLE IF EXISTS RESOURCE_PERMISSION')
+        self.cursor.execute('DROP TABLE IF EXISTS ROLE_HIERARCHY')
         self.dbConnection.commit()
 
     def recreateDefaultDB(self):
@@ -87,6 +90,23 @@ class DatabaseAccessControl():
             self.cursor.execute('INSERT INTO ACCESS_POLICY VALUES (NULL,?,?,?)', (userID, resourceID, permissions))
 
             self.dbConnection.commit()
+
+    # </editor-fold>
+
+    # <editor-fold desc="Role Hierarchy">
+
+    def createHierarchy(self, username, password, role1, role2):
+        if username == ROOT and password == ROOT:
+            # get role1 and role2 entries from database
+            role1DB = self.cursor.execute('SELECT * from ROLE WHERE name=?', (role1,)).fetchone()
+            role2DB = self.cursor.execute('SELECT * from ROLE WHERE name=?', (role2,)).fetchone()
+            if role1DB is None or role2DB is None:
+                return ERROR_NOT_EXISTING
+            self.cursor.execute('INSERT INTO ROLE_HIERARCHY VALUES(NULL,?,?)', (role1DB[0], role2DB[0]))
+            self.dbConnection.commit()
+            return OK
+        else:
+            return ERROR_NOT_AUTHORIZED
 
     # </editor-fold>
 
@@ -298,16 +318,28 @@ class DatabaseAccessControl():
         userRoles = self.cursor.execute('SELECT * FROM USER_ROLE WHERE userID=?', (userDB[0],)).fetchall()
 
         for constraint in constraints:
-             for role in userRoles:
-                 if (role[0] == constraint[1] and constraint[2] == roleDB[0]) \
+            for role in userRoles:
+                if (role[0] == constraint[1] and constraint[2] == roleDB[0]) \
                          or (role[0] == constraint[2] and constraint[1] == roleDB[0]):
+                    return ERROR_FORBIDDEN
+
+        for role in userRoles:
+            juniorRoleID = self.cursor.execute('SELECT junior_roleID from ROLE_HIERARCHY where superior_roleID=?',
+                                               (role[0],)).fetchone()
+            if juniorRoleID is None:
+                continue
+
+            constraints = self.cursor.execute('SELECT * FROM CONSTRAINTS WHERE role1ID=? OR role2ID=?',
+                                          (juniorRoleID[0], juniorRoleID[0])).fetchall()
+            for constraint in constraints:
+                if (juniorRoleID[0] == constraint[1] and constraint[2] == roleDB[0]) \
+                         or (juniorRoleID[0] == constraint[2] and constraint[1] == roleDB[0]):
                     return ERROR_FORBIDDEN
 
         # check if user already has this role
         self.cursor.execute('SELECT * FROM USER_ROLE WHERE userId=? AND roleID=?', (userDB[0], roleDB[0]))
         userRole = self.cursor.fetchone()
         if userRole is None:
-
             self.cursor.execute('INSERT INTO USER_ROLE VALUES(NULL,?,?)', (userDB[0], roleDB[0]))
             self.dbConnection.commit()
             return OK
@@ -501,6 +533,15 @@ class DatabaseAccessControl():
                                                    (userRoleID[0],)).fetchone()
             if rolePermissionID is not None:
                 userPermissionsID.append(rolePermissionID)
+
+            juniorRoleID = self.cursor.execute('SELECT junior_roleID from ROLE_HIERARCHY where superior_roleID=?',
+                                                 (userRoleID[0],)).fetchone()
+            if juniorRoleID is None:
+                continue
+            juniorRolePermissionID = self.cursor.execute('SELECT permissionID from ROLE_PERMISSION where roleID=?',
+                                                           (juniorRoleID[0],)).fetchone()
+            if juniorRolePermissionID is not None:
+                userPermissionsID.append(juniorRolePermissionID)
 
         if len(userPermissionsID) == 0:
             parentResource = self.getParentResource(resourceName)

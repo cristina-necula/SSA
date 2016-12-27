@@ -17,7 +17,8 @@ class CommandController(object):
                               'addPermissionToRole' : self.addPermissionToRole,
                               'assignPermission' : self.assignPermission,
                               'createConstraint' : self.createConstraint,
-                              'revokeRole' : self.revokeRole}
+                              'revokeRole' : self.revokeRole,
+                              'createHierarchy': self.createHierarchy}
 
     def setDBAccessControl(self, dbAccessControl):
         self.dbAccessControl = dbAccessControl
@@ -57,6 +58,9 @@ class CommandController(object):
 
     def createPermission(self, username, password, name, rights):
         return self.dbAccessControl.createPermission(username, password, name, rights)
+
+    def createHierarchy(self, username, password, role1, role2):
+        return self.dbAccessControl.createHierarchy(username, password, role1, role2)
 
     def parseAndExecute(self, clientInput):
         try:
