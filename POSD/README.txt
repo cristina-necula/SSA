@@ -1,4 +1,4 @@
-Tema 3 POSD
+Tema 4 POSD
 
 Student: Necula Cristina-Suzana, SSA
 
@@ -8,4 +8,4 @@ Rulare:
 - se ruleaza server.py din linia de comanda
 - clientul se poate rula 
 	- din linie de comanda(comenzile se introduc de la tastatura) - modulul starClientFromCMD.py
-	- prin rularea clientTestCasesScript_Tema3.py - se deschide o singura instanta client si se trimit comenzile succesiv catre instanta de server deschisa aterior
+	- prin rularea clientTestCasesScript_Tema4.py - se deschide o singura instanta client si se trimit comenzile succesiv catre instanta de server deschisa aterior
