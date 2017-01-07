@@ -1,8 +1,0 @@
-﻿@model MyProjectManager.Models.User
-
-@using (Html.BeginCollectionItem("TeamMembers"))
-{
-    <div style="margin-top:10px">
-        @Html.EditorFor(Model => Model.Username, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
-}
